@@ -1,14 +1,23 @@
 FROM quay.io/opendatahub-contrib/workbench-images:vscode-datascience-c9s-py311_2023c_latest
 
-MAINTAINER Christopher Tate <computate@computate.org>
-
-
 USER root
 
-RUN yum install -y root-cling gcc-c++ clang cmake conda xtensor-devel mlpack-bin mlpack-devel armadillo armadillo-devel gsl-devel hdf5-devel boost-devel
+RUN yum install -y \
+  root-cling \
+  gcc-c++ \
+  clang \
+  cmake \
+  conda \
+  xtensor-devel \
+  mlpack-bin \
+  mlpack-devel \
+  armadillo \
+  armadillo-devel \
+  gsl-devel \
+  hdf5-devel \
+  boost-devel
 RUN conda create --prefix /opt/app-root -y \
-  && conda install --prefix /opt/app-root -c conda-forge xeus-cling -y \
-  && conda install --prefix /opt/app-root -c conda-forge xtensor-blas -y
+  && conda install --prefix /opt/app-root -c conda-forge xeus-cling  xtensor-blas -y
 RUN sed -i -e 's/\/\//\//g' /opt/app-root/share/jupyter/kernels/xcpp*/kernel.json
 RUN pip install jupyterlab notebook
 RUN jupyter kernelspec install /opt/app-root/share/jupyter/kernels/xcpp11 \
