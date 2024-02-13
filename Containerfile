@@ -19,7 +19,7 @@ RUN yum install -y \
 RUN conda create --prefix /opt/app-root -y \
   && conda install --prefix /opt/app-root -c conda-forge xeus-cling xtensor-blas -y
 RUN sed -i -e 's/\/\//\//g' /opt/app-root/share/jupyter/kernels/xcpp*/kernel.json
-RUN pip install jupyterlab notebook
+RUN pip install jupyterlab
 RUN jupyter kernelspec install /opt/app-root/share/jupyter/kernels/xcpp11 \
   && jupyter kernelspec install /opt/app-root/share/jupyter/kernels/xcpp14 \
   && jupyter kernelspec install /opt/app-root/share/jupyter/kernels/xcpp17
