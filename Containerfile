@@ -17,7 +17,7 @@ RUN yum install -y \
   hdf5-devel \
   boost-devel
 RUN conda create --prefix /opt/app-root -y \
-  && conda install --prefix /opt/app-root -c conda-forge xeus-cling  xtensor-blas -y
+  && conda install --prefix /opt/app-root -c conda-forge xeus-cling xtensor-blas -y
 RUN sed -i -e 's/\/\//\//g' /opt/app-root/share/jupyter/kernels/xcpp*/kernel.json
 RUN pip install jupyterlab notebook
 RUN jupyter kernelspec install /opt/app-root/share/jupyter/kernels/xcpp11 \
