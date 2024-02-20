@@ -37,5 +37,5 @@ Base image: [quay.io/opendatahub-contrib/workbench-images:vscode-datascience-c9s
 You can pull the latest [vscode-cpp-cling container image](https://github.com/nerc-images/vscode-cpp-cling/pkgs/container/vscode-cpp-cling) below:
 
 ```
-podman pull ghcr.io/nerc-images/vscode-cpp-cling:main
+podman pull quay.io/nerc-images/vscode-cpp-cling:latest
 ```
